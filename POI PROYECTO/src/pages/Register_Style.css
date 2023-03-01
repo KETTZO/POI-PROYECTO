@@ -1,0 +1,52 @@
+.gradient-custom {
+    background-image: url(../img/wallpaper.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#name, #correo, #contra {
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 100px;   
+    color: rgb(0, 0, 0);
+}
+
+#carrera{
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 100px;   
+    color: rgb(0, 0, 0);
+    padding: 14px;
+    padding-right: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(0, 0, 0);
+    opacity: 1; /* Firefox */
+  }
+
+#foto{
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 100px;   
+    color: rgb(0, 0, 0);
+    padding: 18px;
+    width: 100%;
+    padding-left: 60px;
+    margin-left: -64px;
+}
+
+#logo{
+    margin-top: 11px;
+    width: 60px
+    ;
+}
+
+#join{
+    margin-top: 30px;
+    border-radius: 100px; 
+    background-color: rgb(77, 217, 252);
+    font-size: 15px;
+}
+
+#title{
+    font-size: 15px;
+    color: rgb(63, 178, 207);
+  }

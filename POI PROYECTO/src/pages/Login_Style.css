@@ -1,0 +1,42 @@
+.formContainer {
+    background-image: url(../img/wallpaper.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+img{
+    width: 200px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+#typeEmail, #typePassword{
+    /*
+    background: none;
+    border: none;
+    border-radius: 5px;
+    outline: 0px;
+    border-bottom: 2px solid #c7c7c7;
+    border: 1px solid rgb(140, 194, 255);
+    */
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 100px;   
+    color: rgb(0, 0, 0);
+}
+
+#join{
+    margin-top: 30px;
+    border-radius: 100px; 
+    background-color: rgb(77, 217, 252);
+    font-size: 15px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(0, 0, 0);
+    opacity: 1; /* Firefox */
+  }
+
+  #title{
+    font-size: 15px;
+    color: rgb(63, 178, 207);
+  }
+
