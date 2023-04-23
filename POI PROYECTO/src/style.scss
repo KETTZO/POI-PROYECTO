@@ -216,7 +216,8 @@
                 gap: 10px;
 
                 img{
-                    height: 24px;
+                    height: 36px;
+                    width: auto;
                     cursor: pointer;
                 }
             }
@@ -304,7 +305,8 @@
                     gap: 10px;
 
                     img{
-                        height: 24px;
+                        height: 36px;
+                        width: auto;
                         cursor: pointer;
                     }
 
@@ -312,7 +314,8 @@
                         border: none;
                         padding: 8px 12px;
                         color: #000000;
-                        background-color: #969696;
+                        border-radius: 15px;
+                        background-color: rgb(226, 139, 226);
                         cursor: pointer;
                     }
                 }

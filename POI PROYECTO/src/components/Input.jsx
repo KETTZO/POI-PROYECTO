@@ -108,6 +108,7 @@ const Input = () => {
     return (
         <div className="input">
             <input type="text" placeholder="Mensaje nuevo..." onChange={e=>setText(e.target.value)} value={text}/>
+            
             <div className="send">
                 <input accept="image/*" type="file" style={{display:"none"}} id="img" onChange={e=>setImg(e.target.files[0])}/>
                 <label htmlFor="img">
@@ -118,9 +119,11 @@ const Input = () => {
                     <label htmlFor="file">
                         <img src={Attach} alt="" />
                     </label>
+                    
                 </div>
+                <button onClick={handleSend}>Enviar</button>
             </div>
-            <button onClick={handleSend}>Enviar</button>
+            
         </div>
     )
 }
