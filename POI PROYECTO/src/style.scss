@@ -33,7 +33,7 @@
         align-items: center;
 
         .logo{
-            color: black;
+            color: #19A7CE;
             font-weight: bold;
             font-size: 25px;
             @include tablet{
@@ -42,7 +42,7 @@
         }
 
         .title{
-            color: rgb(83, 82, 82);
+            color: #146C94;
             font-size: 12px;
         }
 
@@ -55,11 +55,11 @@
                 padding: 15px;
                 border: none;
                 width: 250px;
-                border-bottom: 1px solid #a7bcff;
+                border-bottom: 1px solid #ffffff;
             }
 
             button{
-                background-color: #3b3b3b;
+                background-color: #39b5f8;
                 color: white;
                 padding: 10px;
                 font-weight: bold;
@@ -71,7 +71,7 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                color: #7b96ec;
+                color: #39b5f8;
                 font-size: 12px;
                 cursor: pointer;
 
@@ -81,7 +81,7 @@
             }
         }
         p{
-            color: #5b5d8b;
+            color: #f2f2f2;
             font-size: 12px;
             margin-top: 10px;
         }
@@ -89,7 +89,7 @@
 }
 
 .home{
-    background-color: #383737;
+    background-color: #343636;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -105,13 +105,13 @@
 
         .sidebar{
             flex: 1;
-            background-color: #383838;
+            background-color: #eaf6f8;
             position: relative;
 
             .navbar{
                 display: flex;
                 align-items: center;
-                background-color: #201e1e;
+                background-color: #5AE8FB;
                 height: 50px;
                 padding: 10px;
                 justify-content: space-between;
@@ -126,7 +126,7 @@
                     gap: 10px;
 
                     img{
-                        background-color: #ddddf7;
+                        background-color: #bdeef5;
                         height: 24px;
                         width: 24px;
                         border-radius: 50%;
@@ -134,8 +134,9 @@
                     }
 
                     button{
-                        background-color: #c3c3d3;
-                        color: #000000;
+                        background-color: #0adefa;
+                        border-radius: 15px;
+                        color: #ffffff;
                         font-size: 10px;
                         border: none;
                         cursor: pointer;
@@ -151,7 +152,7 @@
         }
 
         .search{
-            border-bottom: 1px solid gray;
+            border-bottom: 0.5px solid rgb(255, 255, 255);
 
             .searchForm{
                 input{
@@ -203,12 +204,12 @@
 
             .chatInfo{
                 height: 50px;
-                background-color: rgb(61, 61, 61);
+                background-color: #39b5f8;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 padding: 10px;
-                color: white;
+                color: rgb(248, 230, 230);
             }
 
             .chatIcons{
@@ -223,7 +224,7 @@
             }
 
             .messages{
-                background-color: #969696;
+                background-color: #f5f4f4;
                 padding: 10px;
                 height: calc(100% - 140px);
                 overflow: scroll;
@@ -281,7 +282,7 @@
 
             .input{ //this is the classname in Input.jsx
                 height: 50px;
-                background-color: #444444;
+                background-color: #5AE8FB;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -292,7 +293,7 @@
                     outline: none;
                     color: #000000;
                     font-size: 18px;
-                    background-color: #444444;
+                    background-color: #bdeef5;
 
                     &::placeholder{
                         color: #000000;
@@ -313,9 +314,9 @@
                     button{
                         border: none;
                         padding: 8px 12px;
-                        color: #000000;
                         border-radius: 15px;
-                        background-color: rgb(226, 139, 226);
+                        background-color: #0adefa;
+                        color: white;
                         cursor: pointer;
                     }
                 }
