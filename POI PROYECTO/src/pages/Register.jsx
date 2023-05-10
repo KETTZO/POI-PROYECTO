@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import add from "../img/a4.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
@@ -9,10 +9,13 @@ import './Register_Style.css';
 import logo3 from '../img/logo3.png'
 import logo4 from '../img/logo4.png'
 
+import { SocketContext } from "../SocketContext";
+
 
 const Register = () => {
     const [err, setErr] = useState(false);
     const navigate = useNavigate();
+    const {me} = useContext(SocketContext)
 
 
     const handleSubmit = async (e) => {
@@ -22,13 +25,17 @@ const Register = () => {
         const email = e.target[1].value;    
         const password = e.target[2].value;
         const file = e.target[3].files[0];
+        const socketId = 10;
+        const isIncluded = false;
+        
 
         try {
             const res  = await createUserWithEmailAndPassword(auth, email, password);
             const storageRef = ref(storage, displayName);
             const uploadTask = uploadBytesResumable(storageRef, file);
+            
             uploadTask.on(
-
+                
             (error) => {
                 setErr(true);
                 const errorCode = error.code;
@@ -49,6 +56,8 @@ const Register = () => {
                         displayName,
                         email,
                         photoURL:downloadURL,
+                        socketId,
+                        isIncluded
                     });
 
                     await setDoc (doc(db, "userChats", res.user.uid), {});

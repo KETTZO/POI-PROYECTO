@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import {db} from "../firebase";
+
 //import add from "../img/a5.jpg";
 
 const Search = () => {
@@ -33,7 +34,7 @@ const Search = () => {
     };
 
     const handleSelect = async () => {
-        //verificar el gtupo (chats in firestore) existe o no, si existe no crear
+        //verificar el grupo (chats in firestore) existe o no, si existe no crear
         const combineId = 
             currentUser.uid > user.uid 
             ? currentUser.uid + user.uid 
@@ -62,6 +63,7 @@ const Search = () => {
                         uid:user.uid,
                         displayName: user.displayName,
                         photoURL: user.photoURL,
+                        isGroup: false
                     },
                     [combineId+".date"]: serverTimestamp()
                 });
@@ -71,6 +73,7 @@ const Search = () => {
                         uid:currentUser.uid,
                         displayName: currentUser.displayName,
                         photoURL: currentUser.photoURL,
+                        isGroup: false
                     },
                     [combineId+".date"]: serverTimestamp()
                 });
@@ -80,16 +83,17 @@ const Search = () => {
         setUser(null);
         setUsername("");
     }
-
+   
     return (
         <div className="search">
             <div className="searchForm">
                 <input type="text"  
-                placeholder="Buscar" 
+                placeholder="Presione enter para buscar..." 
                 onKeyDown={handleKey} 
                 onChange={(e)=>setUsername(e.target.value)} 
                 value={username}
                 />
+                
             </div>
             {err && <span>Usuario no encontrado!</span>}
             {user && (<div className="userChat" onClick={handleSelect}>
@@ -98,6 +102,7 @@ const Search = () => {
                     <span>{user.displayName}</span>
                 </div>
             </div>)}
+            
         </div>
     )
 }

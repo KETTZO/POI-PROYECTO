@@ -79,6 +79,7 @@ const Input = () => {
                 messages: arrayUnion({
                     id: uuid(),
                     text,
+                    userPhotoURL: currentUser.photoURL,
                     senderId: currentUser.uid,
                     date: Timestamp.now(),
                 }),

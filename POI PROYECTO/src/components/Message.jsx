@@ -41,7 +41,7 @@ const Message = ({message}) => {
                 <img src={
                     message.senderId === currentUser.uid
                     ? currentUser.photoURL
-                    : data.user.photoURL
+                    : message.userPhotoURL
                 } 
                 alt="" />
                     <p>{date}</p>

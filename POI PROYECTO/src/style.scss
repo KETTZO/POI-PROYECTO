@@ -127,9 +127,9 @@
 
                     img{
                         background-color: #ddddf7;
-                        height: 24px;
-                        width: 24px;
-                        border-radius: 50%;
+                        height: 30;
+                        width: 30px;
+                        
                         object-fit: cover;
                     }
 
@@ -137,6 +137,8 @@
                         background-color: #c3c3d3;
                         color: #000000;
                         font-size: 10px;
+                        width: 40px;
+                        height: 40px;
                         border: none;
                         cursor: pointer;
                         @include tablet{
@@ -163,6 +165,14 @@
                     &::placeholder{
                         color: lightgray;
                     }
+                }
+                button {
+                    padding: 5px 5px;
+                    border-radius: 	15px;
+                    background-color: #7b96ec;
+                    cursor: pointer;
+                    color: #000000;
+                    position: right;
                 }
             }
         }
@@ -320,8 +330,111 @@
                     }
                 }
             }
+
+            .container-new-group {
+                width: 300px;
+                background-color: blue;
+
+                
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 
     
+}
+
+.menu {
+    margin-top: 70px;
+    width: 70px;
+    background-color: #201e1e;
+    height: auto;
+    margin-bottom: 40p;
+    
+    .menuOptions:hover {
+        background-color: white;
+    }
+    .menuOptions {
+        background-color: #201e1e;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        cursor: pointer;
+
+        img {
+            width: 30px;
+            height: 30px;
+            
+        }
+
+        p{
+            justify-content: flex-start;
+            font-weight: bold;
+        }
+    }
+}
+.container-videos {
+    display: flex;
+}
+.myVideo {
+    display: flex;
+    button {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: pink;
+    }
+    video {
+        width: 500px;
+        height: 500px;
+        border: red solid
+    }
+}
+
+.userVideo {
+    video {
+        width: 500px;
+        height: 500px;
+        border: blue solid
+    }
+}
+
+.Check {
+    visibility: visible;
+}
+
+.unCheck {
+    visibility: hidden;
+}
+
+.newGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    input {
+        width: 300px;
+        border-radius: 20px;
+        padding: 10px 0 10px 0;
+    }
+
+    button {
+        width: 150px;
+        padding: 5px 5px 5px 5px;
+        border-radius: 10px;
+        background-color: #7b96ec;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #3f8bfd;
+    }
 }
