@@ -3,10 +3,12 @@ import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import Img from "../img/img.png";
 import Attach from "../img/attach.png";
+import Marker from "../img/MAP.png";
 import { arrayUnion, doc, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore";
 import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import CryptoJS from "crypto-js";
 
 const Input = () => {
     const [ text, setText ] = useState("");
@@ -16,7 +18,21 @@ const Input = () => {
     const {currentUser} = useContext(AuthContext)
     const {data} = useContext(ChatContext)
 
+    const cifrar = (texto) => {
+        var textoCifrado = CryptoJS.AES.encrypt(texto, '@POI-002').toString();
+        return textoCifrado;
+    }
+    const getLocation = () => {
+        document.getElementById('newMessage').value = "http://localhost:3000/map";
+        
+    }
     const handleSend = async () => {
+        console.log("texto original= " + text);
+        
+        var cifrado = cifrar(text);
+        console.log("texto cifrado= " + cifrado);
+        setText(cifrado);
+
 
         if (img){
             const storageRef = ref(storage, uuid());
@@ -78,7 +94,7 @@ const Input = () => {
             await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                     id: uuid(),
-                    text,
+                    text: cifrado,
                     userPhotoURL: currentUser.photoURL,
                     senderId: currentUser.uid,
                     date: Timestamp.now(),
@@ -104,11 +120,16 @@ const Input = () => {
         setText("");
         setImg(null);
         setFileI(null);
+        var getValue= document.getElementById("newMessage");
+        if (getValue.value !== "") {
+            getValue.value = "";
+        }
+        
     };
 
     return (
         <div className="input">
-            <input type="text" placeholder="Mensaje nuevo..." onChange={e=>setText(e.target.value)} value={text}/>
+            <input id="newMessage" type="text" placeholder="Mensaje nuevo..." onChange={e=>setText(e.target.value)} value={text}/>
             
             <div className="send">
                 <input accept="image/*" type="file" style={{display:"none"}} id="img" onChange={e=>setImg(e.target.files[0])}/>
@@ -120,7 +141,12 @@ const Input = () => {
                     <label htmlFor="file">
                         <img src={Attach} alt="" />
                     </label>
-                    
+                </div>
+                <div className="send2">
+                   
+                    <label onClick={getLocation}>
+                        <img src={Marker} alt="" />
+                    </label>
                 </div>
                 <button onClick={handleSend}>Enviar</button>
             </div>

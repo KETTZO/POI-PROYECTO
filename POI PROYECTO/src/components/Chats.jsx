@@ -25,7 +25,7 @@ const Chats = (props) => {
     const [newGroup, setNewGroup] = useState (false);
     const [chats, setChats] = useState([])
     const [users, setUsers] = useState([])
-    const [display, setDisplay] = useState(false);
+    const [userStatus, setuserStatus] = useState(false)
     
 
     const {currentUser} = useContext(AuthContext);
@@ -74,23 +74,62 @@ const Chats = (props) => {
             if(!u.isGroup)
             {
                 dispatch({type:"CHANGE_USER", payload: u})
-                console.log(u.displayName);
+                
             }
             else
             {
                 dispatch({type:"CHANGE_GROUP", payload: u})
-                console.log("es grupo");
+                
             }
             
         }
+        function test2 () {
+            return false;
+        }
+        function test ()
+        {
+
+            console.log(getUserStatus("rAbgzThYdQYfDCVKtbU2mpb5krU2"));
+            if(getUserStatus("rAbgzThYdQYfDCVKtbU2mpb5krU2") === false)
+            {
+                
+                console.log("EN LINEA")
+            }
+            else
+                console.log("offline")
+
+        }
+        const getUserStatus = async (x) => {
+            const q = query(
+                collection(db, "users"),
+                where ("uid", "==", x)
+            );
+            
+                const querySnapshot = await getDocs(q);
+                 
+                querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                    setuserStatus(doc.data().isOnline) ;
+                });
+
+                console.log(userStatus)
+                return userStatus;
+
+        };
+
+        function userClass (x)
+        {
+            
+             return (getUserStatus(x));
+            
+        }
+
         const nuevoGrupo = () => {
-            
-            
             newGroupUsers.push(currentUser.uid);
-            console.log("NEWGROUPUSERS BEGIN=" + newGroupUsers);
             setNewGroup(true);
             getAllUsers();
         }
+
         const cancelNuevoGrupo = async () => {
             getAllUsers();
             for (const usuario of users) {
@@ -153,11 +192,13 @@ const Chats = (props) => {
             return (
                 <div className="chats">
                     <button onClick={nuevoGrupo}>Crear grupo</button>
-        
-        
+                    <button onClick={test}>status</button>
+                   
+                    
                     {Object.entries(chats)?.map((chat) => (
                     
-                    <div className="userChat" key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+                    <div id={chat[1].userInfo.uid} className={chat[1].userInfo.isOnline  ? 'userChat' : 'userChatOff'} key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+                        
                         <img src={chat[1].userInfo.photoURL} alt="" />
                         <div className="userChatInfo">
                             <span>{chat[1].userInfo.displayName}</span>
@@ -165,8 +206,9 @@ const Chats = (props) => {
                         </div>
                     </div>
                     ))
-                        
+                       
                     }
+                     
                 </div>
             )
         }

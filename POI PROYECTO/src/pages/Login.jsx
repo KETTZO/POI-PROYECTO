@@ -6,6 +6,8 @@ import { auth } from "../firebase";
 import './Login_Style.css';
 import logo3 from '../img/logo3.png'
 
+import {db, storage} from "../firebase";
+import { doc, updateDoc} from "firebase/firestore";
 const Login = () => {
     const [err, setErr] = useState(false);
     const navigate = useNavigate();
@@ -19,9 +21,12 @@ const Login = () => {
         //const auth = getAuth();
         try{
             await signInWithEmailAndPassword(auth, email, password);
+            
+
             navigate("/");
         }catch(err){
             setErr(true);
+            console.log(err);
         }
     };
 

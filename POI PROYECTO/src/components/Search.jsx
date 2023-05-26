@@ -63,7 +63,9 @@ const Search = () => {
                         uid:user.uid,
                         displayName: user.displayName,
                         photoURL: user.photoURL,
-                        isGroup: false
+                        isGroup: false,
+                        isOnline: false
+                        
                     },
                     [combineId+".date"]: serverTimestamp()
                 });
@@ -73,7 +75,8 @@ const Search = () => {
                         uid:currentUser.uid,
                         displayName: currentUser.displayName,
                         photoURL: currentUser.photoURL,
-                        isGroup: false
+                        isGroup: false,
+                        isOnline: false
                     },
                     [combineId+".date"]: serverTimestamp()
                 });

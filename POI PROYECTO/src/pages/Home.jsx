@@ -12,6 +12,7 @@ import { ChatContext } from "../context/ChatContext";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
+
 const Home = () => {
 
     const { data } = useContext(ChatContext);
@@ -20,6 +21,8 @@ const Home = () => {
     const [idToCall, setIdToCall] = useState('');
 
     const updateSocket = async () => {
+        
+        console.log(me);
         if(currentUser != null)
         {
             await updateDoc(doc(db, "users", currentUser.uid), {
@@ -34,6 +37,7 @@ const Home = () => {
     }
 
     window.onload = updateSocket();
+    
 
     return (
         <div className="home">
@@ -45,9 +49,12 @@ const Home = () => {
                  </Options>
                  */}
                 
-                <Menu />
+                
+                 <Menu />
                 <Sidebar/>
                 <Chat/>
+                
+                
                 
             </div>
         </div>

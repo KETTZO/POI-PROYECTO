@@ -28,8 +28,6 @@ const ContextProvider = ({children}) => {
                 setStream(currentStream);
                     myVideo.current.srcObject = currentStream;
                    
-                    //console.log("HAY STREAM");
-    
             });
 
                 socket.on('me', setMe(socket.id));
@@ -38,7 +36,7 @@ const ContextProvider = ({children}) => {
             setCall({isReceivedCall: true, from, name: callerName, signal})
         });  
 
-    }, stream);
+    }, ); 
 
     const answerCall = () => {
         setCallAccepted(true)
@@ -60,6 +58,7 @@ const ContextProvider = ({children}) => {
     }
 
     const callUser = (id) => {
+        console.log(id);
         const peer = new Peer({ initiator: true, trickle: false, stream })
 
         try {

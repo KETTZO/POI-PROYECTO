@@ -25,7 +25,7 @@ const Register = () => {
         const email = e.target[1].value;    
         const password = e.target[2].value;
         const file = e.target[3].files[0];
-        const socketId = 10;
+        var socketId = "10";
         const isIncluded = false;
         
 
@@ -57,7 +57,9 @@ const Register = () => {
                         email,
                         photoURL:downloadURL,
                         socketId,
-                        isIncluded
+                        isIncluded,
+                        Encrypted: true,
+                        isOnline: true
                     });
 
                     await setDoc (doc(db, "userChats", res.user.uid), {});

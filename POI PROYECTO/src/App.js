@@ -2,6 +2,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import VideoCall from "./pages/VideoCall";
+import Map from "./pages/Map";
+
 import "./style.scss";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import { useContext } from "react";
@@ -26,6 +28,8 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="videocall" element={<VideoCall />} />
+            <Route path="map" element={<Map />} />
+            
             
           </Route>
       </Routes>

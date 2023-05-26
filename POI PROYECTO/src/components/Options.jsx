@@ -37,10 +37,12 @@ const Options = ({children}) => {
                     <button onClick={() => callUser(idToCall)}>
                         Llamar
                     </button>
+                    
+
                 )
             }
             {children}
-            <button onClick={getSocketId}>H</button>
+            
         </div>
 
     )
